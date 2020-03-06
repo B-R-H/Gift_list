@@ -3,8 +3,8 @@ import unittest
 from flask import abort, url_for
 from flask_testing import TestCase
 
-from Application import app, db
-from Application.models import *
+from application import app, db
+from application.models import *
 
 import os
 
