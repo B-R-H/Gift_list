@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block body_content %}
+    <p>Look at all the gifts!!!</p>
+    {% if gifts %}
+        {% for gift in gifts %}
+    	    <div>
+       	 	<h3>{{ gift.name }}</h3>
+		<!-- Insert code to display image of gift and if it claimed -->
+		<span><i>{{ gift.description }}</i></span>
+		<br>
+		<span><i>{{ gift.url }}</i></span>
+		<br>
+        	<span>price:  £<i>{{ gift.price }}</i></span>
+    	    </div>
+	{% endfor %}
+
+    {% else %}
+        <p>No gifts to currently display</p>
+    {% endif %}
+{% endblock body_content %}

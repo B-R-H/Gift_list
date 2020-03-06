@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block body_content %}
+    <p1> Ablility to delete gifts for the couple </p1>
+
+    {% if gifts %}
+    <table style="width:100%">
+  		<tr>
+    		<th>ID</th>
+    		<th>name</th>
+		<th>description</th>
+    		<th>url</th>
+    		<th>price</th>
+    		{% if current_user.permission == "Couple" %}
+    			<th> Delete?</th>
+    		{% endif %}
+  		</tr>
+        {% for gift in gifts %}
+        <tr>
+    		<td>{{ gift.id }}</td>
+    		<td>{{ gift.name }}</td>
+		<td>{{ gift.description }}</td>
+    		<td>{{ gift.url }}</td>
+    		<td>£{{ gift.price }}</td>
+    		{% if current_user.permission == "Couple" %}
+    			<th><a href="{{ url_for('delete_gift_by_id', id=gift.id) }}">delete</a></th>
+    		{% endif %}
+  		</tr>
+		{% endfor %}
+	</table>
+    {% else %}
+        <p>No gifts to currently display</p>
+    {% endif %}
+
+    <div class='form'>
+        <form method='POST' action=''>
+        {{ form.hidden_tag() }}
+        {{ form.id.label }}
+        {{ form.id }}
+	    {% if form.id.errors %}
+            <div class="error">
+                {% for error in form.id.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <br>
+        {{ form.name.label }}
+        {{ form.name }}
+	    {% if form.name.errors %}
+            <div class="error">
+                {% for error in form.name.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <br>
+        {{ form.description.label }}
+        {{ form.description }}
+	    {% if form.description.errors %}
+            <div class="error">
+                {% for error in form.description.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <br>
+        {{ form.url.label }}
+        {{ form.url }}
+        {% if form.url.errors %}
+            <div class="error">
+                {% for error in form.url.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <br>
+        {{ form.price.label }}
+        {{ form.price }}
+        {% if form.price.errors %}
+            <div class="error">
+                {% for error in form.price.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <br>
+        {{ form.submit }}
+        </form>
+
+{% endblock %}
