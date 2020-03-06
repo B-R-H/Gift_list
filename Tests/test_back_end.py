@@ -3,16 +3,18 @@ import unittest
 from flask import abort, url_for
 from flask_testing import TestCase
 
-from application import app, db
-from application.models import Users, Posts
+from Application import app, db
+from Application.models import *
+
+import os
+
 class TestBase(TestCase):
 
     def create_app(self):
 
         # pass in configurations for test database
         config_name = 'testing'
-        app.config.update(
-            SQLALCHEMY_DATABASE_URI='mysql+pymysql://(YOUR TEST DB INFO)'        )
+        app.config['SQLALCHEMY_DATABASE_URI'] = str(os.getenv('TEST_DATABASE_URI'))
         return app
 
     def setUp(self):
@@ -23,12 +25,18 @@ class TestBase(TestCase):
         db.session.commit()
         db.drop_all()
         db.create_all()
+        usRoles = ["Guest","Couple","2nd line","Wedding party"]
+
+        for i in usRoles:
+            roleAdd = User_roles(role = i)
+            db.session.add(roleAdd)
+            db.session.commit()
 
         # create test admin user
-        admin = Users(first_name="admin", last_name="admin", email="admin@admin.com", password="admin2016")
+        admin = User(first_name="admin", last_name="admin",permission="Couple", email="admin@admin.com", password="admin2016")
 
         # create test non-admin user
-        employee = Users(first_name="test", last_name="user", email="test@user.com", password="test2016")
+        employee = User(first_name="test", last_name="user",permission = "Guest", email="test@user.com", password="test2016")
 
         # save users to database
         db.session.add(admin)
