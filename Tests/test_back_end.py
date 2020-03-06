@@ -29,7 +29,7 @@ class TestBase(TestCase):
 
         for i in usRoles:
             roleAdd = User_roles(role = i)
-            db.session.add(roleAdd)
+          db.session.add(roleAdd)
             db.session.commit()
 
         # create test admin user
