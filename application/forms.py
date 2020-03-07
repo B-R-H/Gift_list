@@ -19,6 +19,16 @@ def Valid_id():
             raise ValidationError("The ID ented has no gift assigned")
     return _Valid_id
 
+def Valid_float():
+    message = 'Value not empty or float'
+    def _Valid_float(form, feild):
+        if feild.data != '':
+            try:
+                float(element)
+            except ValueError:
+                raise ValidationError("")        
+    return _Valid_float
+
 class UpdateAccountForm(FlaskForm):
     first_name = StringField('First Name',
         validators=[
@@ -196,6 +206,9 @@ class Modify_Gift_Form(FlaskForm):
             validators = [
             ]
         )
-    price = FloatField('Price'
+    price = StringField('Price',
+            validators = [
+                Valid_float()
+            ]
         )
     submit = SubmitField('update gift')
