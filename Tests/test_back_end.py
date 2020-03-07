@@ -73,3 +73,32 @@ class TestViews(TestBase):
         """
         response = self.client.get(url_for('register'))
         self.assertEqual(response.status_code, 200)
+
+
+    #account page
+    def test_admin_redirect(self):
+        target_url = url_for('account')
+        redirect_url = url_for('home', next=target_url)
+        response = self.client.get(target_url)
+        self.assertRedirects(response, redirect_url)
+    #logout
+    #delete account
+    def test_admin_redirect(self):
+        target_url = url_for('account_delete')
+        redirect_url = url_for('home', next=target_url)
+        response = self.client.get(target_url)
+        self.assertRedirects(response, redirect_url)
+    #admin
+    def test_admin_redirect(self):
+        target_url = url_for('admin')
+        redirect_url = url_for('home', next=target_url)
+        response = self.client.get(target_url)
+        self.assertRedirects(response, redirect_url)
+    #edit user
+    def test_admin_redirect(self):
+        target_url = url_for('edit_users')
+        redirect_url = url_for('home', next=target_url)
+        response = self.client.get(target_url)
+        self.assertRedirects(response, redirect_url)
+    #delete gifts
+
