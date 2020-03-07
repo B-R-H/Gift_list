@@ -107,7 +107,7 @@ def admin():
                 gift.url = form.url.data
                 db.session.commit()
             if form.price.data != '':
-                gift.price = float(form.price.data)
+                gift.price = form.price.data
                 db.session.commit()
             return redirect(url_for('admin'))
 

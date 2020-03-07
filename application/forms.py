@@ -206,9 +206,6 @@ class Modify_Gift_Form(FlaskForm):
             validators = [
             ]
         )
-    price = StringField('Price',
-            validators = [
-                Valid_float()
-            ]
+    price = FloatField('Price'
         )
     submit = SubmitField('update gift')
