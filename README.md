@@ -1,2 +1,2 @@
-# QAP1
+# Wedding gift list
 First training project
