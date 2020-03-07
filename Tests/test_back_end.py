@@ -85,13 +85,13 @@ class TestViews(TestBase):
     #delete account
     def test_account_delete_redirect(self):
         target_url = url_for('account_delete')
-        redirect_url = url_for('home', next=target_url)
+        redirect_url = url_for('login', next=target_url)
         response = self.client.get(target_url)
         self.assertRedirects(response, redirect_url)
     #admin
     def test_admin_redirect(self):
         target_url = url_for('admin')
-        redirect_url = url_for('home', next=target_url)
+        redirect_url = url_for('login', next=target_url)
         response = self.client.get(target_url)
         self.assertRedirects(response, redirect_url)
     #edit user
