@@ -76,14 +76,14 @@ class TestViews(TestBase):
 
 
     #account page
-    def test_admin_redirect(self):
+    def test_account_redirect(self):
         target_url = url_for('account')
-        redirect_url = url_for('home', next=target_url)
+        redirect_url = url_for('login', next=target_url)
         response = self.client.get(target_url)
         self.assertRedirects(response, redirect_url)
     #logout
     #delete account
-    def test_admin_redirect(self):
+    def test_account_delete_redirect(self):
         target_url = url_for('account_delete')
         redirect_url = url_for('home', next=target_url)
         response = self.client.get(target_url)
@@ -95,7 +95,7 @@ class TestViews(TestBase):
         response = self.client.get(target_url)
         self.assertRedirects(response, redirect_url)
     #edit user
-    def test_admin_redirect(self):
+    def test_edit_users_redirect(self):
         target_url = url_for('edit_users')
         redirect_url = url_for('login', next=target_url)
         response = self.client.get(target_url)
