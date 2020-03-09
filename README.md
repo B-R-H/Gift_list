@@ -56,8 +56,11 @@ Project progress was kep track on trello.
 Name                      Stmts   Miss  Cover
 
 application/__init__.py      14      0   100%
+
 application/forms.py         83     25    70%
+
 application/models.py        25      2    92%
+
 application/routes.py       135    103    24%
 
 TOTAL                       257    130    49%
