@@ -46,6 +46,8 @@ Project progress was kep track on trello.
 
 ### CI pipeline
 
+![CI pipeline](https://user-images.githubusercontent.com/32487202/76200408-7e274b00-61e9-11ea-86f2-f77474b9c9c5.png)
+
 
 
 ### Testing
