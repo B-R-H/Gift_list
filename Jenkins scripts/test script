@@ -1,0 +1,24 @@
+if ${Set_Up_Enviroment}; then
+
+sudo apt update
+sudo apt install python3
+sudo apt install python3-pip -y
+sudo apt install python3-venv -y
+sudo apt install mysql-server -y
+sudo apt install tree -y
+  
+sudo mysql << eof
+CREATE DATABASE IF NOT EXISTS testdb;
+CREATE USER IF NOT EXISTS '${user}'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL ON *.* TO '${user}'@'localhost' WITH GRANT OPTION;
+eof
+  
+python3 -m venv venv
+fi
+
+source venv/bin/activate
+pip install -r requirements.txt
+
+export TEST_DATABASE_URI="mysql+pymysql://${user}:password@localhost/testdb"
+
+pytest --cov ./application/
