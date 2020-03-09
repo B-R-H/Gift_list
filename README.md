@@ -53,18 +53,16 @@ Project progress was kep track on trello.
 ### Testing
 
 ----------- coverage: platform linux, python 3.6.9-final-0 -----------
-Name                      Stmts   Miss  Cover
-
-application/__init__.py      14      0   100%
-
-application/forms.py         83     25    70%
-
-application/models.py        25      2    92%
-
-application/routes.py       135    103    24%
-
-TOTAL                       257    130    49%
+| Name | Stmts | Miss | Cover |
+|---|---|---|---|
+| application/__init__.py | 14 | 0 | 100% |
+| application/forms.py | 83 | 25 | 70% |
+| application/models.py | 25 | 2 | 92% |
+| application/routes.py | 135 | 103 | 24% |
+| TOTAL | 257 | 130 | 49% |
 
 ========================= 7 passed, 1 warning in 6.94s =========================
 
 ### Evaluation 
+
+Not all functonality currently implemented the guests can't claim gifts yet so that databse relation hasesn't been used yet. Also the test require more work the only functionality currently being tested are the pathing for a user that isn't loged in. This is why the test coverage is low. The CI pipleine is in good shape and if the app needs to be transfered to a different VM 2 paremters need to be changed. The database wasn't moved to a hosted service but could be by changing the parameters of the scripts. The asthectics of the page need improving but that could be done by a web designer.  
