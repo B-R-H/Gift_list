@@ -30,7 +30,7 @@ To run localy you will have to create the venv and pip install -r requirements.t
 ### Risk assessment
 | Description | Assessment | Likehood | Impact | Overall | Responsibility | Current Mitagation | Proposed Mitigation | Responce | Control |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Virtual machine hosting the app goes down. | Low | Medium | LM | Azure | Code base stored on git so another VM can be spun up quickly. | None | None | Treat |
+| Virtual machine hosting the app goes down. | Vm hosted on Azure so very low likelihood of down time. | Low | Medium | LM | Azure | Code base stored on git so another VM can be spun up quickly. | None | None | Treat |
 | Database compramised | Database will hold valuable data from the users so needs to be secure. | Low | High | LH | Me | Database only accessible from specified VM and is password protected. | None | None | Treat |
 | Test don’t catch a bug that breaks the app | The pipeline will deploy the app if test are passed so it would break for the user | Medium | Medium | M | Me | Trying to write comprehensive tests for the app. | Implement a selenium environment for testing. | Role back the app to the last stable version. | Treat |
 | People put wrongly formatted data into the database | Can cause confusion between users over who owns a gift | Low | Low | L | Me | Strong validation checks on the forms to stop data being passed to the database in the wrong form. | None | Can repopulate the database from a separate file. | Treat |
