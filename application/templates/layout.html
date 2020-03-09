@@ -8,7 +8,7 @@
 			<a href="{{ url_for('account') }}">Account</a>
 			{% if current_user.permission != "Guest" %}
 				<a href="{{ url_for('admin') }}">Admin</a>
-				<a href="{{ url_for('edit_users') }}">Edeit users</a>
+				<a href="{{ url_for('edit_users') }}">Edit users</a>
 				{% if current_user.permission == "Couple" %}
 					<a href="{{ url_for('add_gift') }}">Add_Gift</a>
 				{% endif %}
