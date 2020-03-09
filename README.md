@@ -54,12 +54,12 @@ Project progress was kep track on trello.
 
 ----------- coverage: platform linux, python 3.6.9-final-0 -----------
 Name                      Stmts   Miss  Cover
----------------------------------------------
+
 application/__init__.py      14      0   100%
 application/forms.py         83     25    70%
 application/models.py        25      2    92%
 application/routes.py       135    103    24%
----------------------------------------------
+
 TOTAL                       257    130    49%
 
 ========================= 7 passed, 1 warning in 6.94s =========================
