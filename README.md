@@ -25,7 +25,7 @@ To run localy you will have to create the venv and pip install -r requirements.t
 
 ### ERD 
 
-![ERD v3](https://user-images.githubusercontent.com/32487202/76198871-ba0ce100-61e6-11ea-91a4-2e67d29eb016.png)
+<img width="1000" src="https://user-images.githubusercontent.com/32487202/76198871-ba0ce100-61e6-11ea-91a4-2e67d29eb016.png">
 
 ### Risk assessment
 | Description | Assessment | Likehood | Impact | Overall | Responsibility | Current Mitagation | Proposed Mitigation | Responce | Control |
