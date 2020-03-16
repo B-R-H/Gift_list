@@ -4,3 +4,4 @@
 /Documentation/
 *.DS_Store
 .coverage
+.env
