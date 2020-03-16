@@ -1,25 +1,23 @@
 version: '3.7'
 services:
   gift-list:
+    image: gift-list:v1
     build: .
-    ports:
-    - target: 5000
-      published: 5000
-      protocol: tcp
     depends_on:
     - mysql
     environment:
     - DATABASE_URI=${DATABASE_URI}
     - SECRET_KEY=${SECRET_KEY}
+    deploy:
+      replicas: 8
   mysql:
     image: b-r-h/gldb:v1
-    container_name: mysql
     environment:
     - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
-    volumes:
-      - type: volume
-        source: mysqldata
-        target: /var/lib/mysql
+      #    volumes:
+      #      - type: volume
+      #        source: mysqldata
+      #        target: /var/lib/mysql
   nginx:
     image: nginx:latest
     ports:
@@ -33,5 +31,5 @@ services:
     depends_on:
     - gift-list
 
-volumes:
-  mysqldata:
+      #volumes:
+      # mysqldata:
